@@ -354,6 +354,40 @@
             transform: scale(1.1);
         }
 
+        .privacy-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-soft);
+            background: transparent;
+            color: var(--ink-dim);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .privacy-btn:hover {
+            border-color: var(--teal);
+            color: var(--ink);
+            background: rgba(94, 234, 212, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(94, 234, 212, 0.15);
+        }
+
+        .footer-link {
+            color: var(--ink-faint);
+            transition: color 0.2s ease;
+            text-decoration: underline;
+            margin-top: 0.5rem;
+            display: inline-block;
+            font-size: 0.8rem;
+        }
+
+        .footer-link:hover {
+            color: var(--teal);
+        }
+
         .btn-text {
             display: flex;
             flex-direction: column;
@@ -644,6 +678,13 @@
                             <span class="btn-main">Google Play</span>
                         </div>
                     </a>
+                    <a href="https://nextgenlabs-official.github.io/Privacy-policy/onefiles.html" class="privacy-btn"
+                        target="_blank" rel="noopener">
+                        <div class="btn-text">
+                            <span class="btn-sub">Review Legal</span>
+                            <span class="btn-main">Privacy Policy</span>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="hero-stats">
@@ -822,8 +863,8 @@
     </main>
 
     <footer>
-        <p>&copy; <span id="year"></span> Madhankumar Onteddubandi ( MadhanBlastz ) · NextGen Labs. All rights reserved.
-        </p>
+        <p>&copy; <span id="year"></span> Madhankumar Onteddubandi ( MadhanBlastz ) · NextGen Labs. All rights reserved.</p>
+        <p><a href="https://nextgenlabs-official.github.io/Privacy-policy/onefiles.html" target="_blank" rel="noopener" class="footer-link">Privacy Policy</a></p>
     </footer>
 
     <script>
