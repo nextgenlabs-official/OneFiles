@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0e12">
+    <title>OneFiles (One Files) App - All-in-One Super App | Founded by Madhankumar Onteddubandi (MadhanBlastz)</title>
+    <meta name="description"
+        content="Official website of OneFiles (One Files) App, the ultimate mobile super app, founded by Madhankumar Onteddubandi (MadhanBlastz) under NextGen Labs. Features a file manager, private browser, media playback, AI assistant, and 50+ tools.">
+    <meta name="keywords"
+        content="Madhankumar Onteddubandi, MadhanBlastz, madhanblast, OneFiles, One Files, OneFiles app, One Files app, NextGen Labs, founder, file manager, media playback, AI assistant, super app, private browser">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title"
+        content="OneFiles App | Ultimate All-in-One Super App | Founded by Madhankumar Onteddubandi (MadhanBlastz)">
+    <meta property="og:description"
+        content="Manage your one files, enjoy high-quality media playback, chat with AI, and access 50+ essential tools instantly in a single app. Created by Madhankumar Onteddubandi (MadhanBlastz) under NextGen Labs.">
+    <meta property="og:image" content="feature_graphic_bg_1780857096668.png">
+
+    <link rel="icon" type="image/png" href="NextGen Labs icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "OneFiles",
+        "alternateName": "One Files",
+        "operatingSystem": "Android",
+        "applicationCategory": "UtilityApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "An all-in-one super app featuring a smart file manager, media playback, AI companion, secure browser, and a massive ecosystem of 50+ micro-utilities.",
+        "author": {
+          "@type": "Organization",
+          "name": "NextGen Labs",
+          "founder": {
+            "@type": "Person",
+            "name": "Madhankumar Onteddubandi",
+            "alternateName": ["MadhanBlastz", "madhanblast"]
+          }
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Madhankumar Onteddubandi",
+        "alternateName": ["MadhanBlastz", "madhanblast"],
+        "jobTitle": "Founder & Lead Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "NextGen Labs"
+        },
+        "knowsAbout": ["Software Development", "Android Apps", "File Management", "Mobile Architecture"]
+      }
+    ]
+    </script>
+
+    <style>
+        :root {
+            --bg: #0a0e12;
+            --surface: #10151b;
+            --surface-2: #151b23;
+            --ink: #eceff3;
+            --ink-dim: #8993a3;
+            --ink-faint: #566072;
+            --amber: #f2a93b;
+            --amber-dim: #b98130;
+            --teal: #5eead4;
+            --border: rgba(242, 169, 59, 0.16);
+            --border-soft: rgba(255, 255, 255, 0.07);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background-image:
+                radial-gradient(ellipse 700px 500px at 12% 8%, rgba(242, 169, 59, 0.08), transparent 60%),
+                radial-gradient(ellipse 800px 600px at 92% 18%, rgba(94, 234, 212, 0.06), transparent 60%);
+            background-attachment: fixed;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ::selection {
+            background: rgba(242, 169, 59, 0.3);
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---------- Top nav ---------- */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.9rem 1.5rem;
+            background: rgba(10, 14, 18, 0.82);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-soft);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .topbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .brand-mark {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .brand-mark img {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .tab-links {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: nowrap;
+        }
+
+        .tab-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.76rem;
+            color: var(--ink-dim);
+            text-decoration: none;
+            padding: 0.4rem 0.7rem;
+            border-radius: 8px 8px 0 0;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .tab-link:hover {
+            color: var(--amber);
+            background: var(--surface);
+            border-color: var(--border);
+            border-bottom-color: transparent;
+        }
+
+        /* ---------- Hero ---------- */
+        header {
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            padding: 4.5rem 1.5rem 3rem;
+        }
+
+        .hero-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 900px) {
+            .hero-inner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 4rem;
+            }
+
+            .hero-text-block {
+                flex: 1.2;
+                max-width: 650px;
+            }
+
+            .hero-stats {
+                flex: 0.8;
+                margin-top: 0;
+                justify-content: center;
+            }
+        }
+
+        .eyebrow-path {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--teal);
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            margin-bottom: 1.4rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.1s forwards;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 7px;
+            height: 1em;
+            background: var(--teal);
+            margin-left: 4px;
+            animation: blink 1s step-end infinite;
+            transform: translateY(2px);
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        h1.name {
+            font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
+            color: var(--ink);
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.22s forwards;
+        }
+
+        h1.name span {
+            background: linear-gradient(135deg, var(--amber) 0%, var(--teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .role-line {
+            margin-top: 1.1rem;
+            font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+            color: var(--ink-dim);
+            font-weight: 400;
+            max-width: 580px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.34s forwards;
+        }
+
+        .role-line strong {
+            color: var(--amber);
+            font-weight: 600;
+        }
+
+        .hero-desc {
+            margin-top: 1.4rem;
+            font-size: 0.98rem;
+            color: var(--ink-faint);
+            max-width: 540px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.46s forwards;
+        }
+
+        /* Download Badge styling */
+        .hero-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.54s forwards;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #10151b 0%, #151b23 100%);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #151b23 0%, #1c2430 100%);
+            border-color: var(--amber);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(242, 169, 59, 0.15);
+        }
+
+        .download-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover svg {
+            transform: scale(1.1);
+        }
+
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.25;
+        }
+
+        .btn-sub {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--ink-dim);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .btn-main {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ink);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-stats {
+            margin-top: 2.2rem;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 2.5rem 3.5rem;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.62s forwards;
+        }
+
+        @media (min-width: 900px) {
+            .hero-stats {
+                margin-top: 0;
+                flex-shrink: 0;
+            }
+        }
+
+        .stat .num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+
+        .stat .num span {
+            color: var(--amber);
+        }
+
+        .stat .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--ink-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-top: 0.2rem;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---------- Sections ---------- */
+        main {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 5rem;
+        }
+
+        .section-intro {
+            margin-bottom: 2.6rem;
+            max-width: 640px;
+        }
+
+        .section-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--teal);
+            letter-spacing: 0.03em;
+            margin-bottom: 0.7rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+
+        .section-sub {
+            margin-top: 0.8rem;
+            color: var(--ink-dim);
+            font-size: 0.98rem;
+        }
+
+
+
+        /* ---------- Grid cards ---------- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 1.6rem;
+        }
+
+        /* Folder-tab card with Glassmorphic feel */
+        .feature-card {
+            background: rgba(16, 21, 27, 0.75);
+            border: 1px solid var(--border-soft);
+            border-radius: 6px 16px 16px 16px;
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-tab {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.85rem 1.3rem;
+            border-bottom: 1px solid var(--border-soft);
+            background: rgba(21, 27, 35, 0.85);
+        }
+
+        .card-path {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--amber);
+        }
+
+        .card-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--ink-faint);
+            border: 1px solid var(--border-soft);
+            border-radius: 20px;
+            padding: 0.15rem 0.55rem;
+            background: rgba(10, 14, 18, 0.5);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            padding: 1.2rem 1.3rem 0.2rem;
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .tool-list {
+            list-style: none;
+            padding: 0.4rem 1.3rem 1.4rem;
+            margin: 0;
+        }
+
+        .tool-list li {
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            font-size: 0.92rem;
+            color: var(--ink-dim);
+        }
+
+        .tool-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            margin-top: 0.5em;
+            border-radius: 1px;
+            background: var(--amber-dim);
+            flex-shrink: 0;
+        }
+
+        .upcoming .card-tab {
+            background: rgba(94, 234, 212, 0.08);
+        }
+
+        .upcoming .card-path {
+            color: var(--teal);
+        }
+
+        .upcoming .tool-list li::before {
+            background: var(--teal);
+            opacity: 0.7;
+        }
+
+        /* ---------- Founder strip ---------- */
+        .founder-strip {
+            margin-top: 5rem;
+            border: 1px solid var(--border-soft);
+            border-radius: 16px;
+            background: rgba(16, 21, 27, 0.75);
+            padding: 2.6rem;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .founder-strip p {
+            margin: 0 auto;
+            color: var(--ink-dim);
+            font-size: 0.98rem;
+            max-width: 580px;
+            line-height: 1.65;
+        }
+
+        .founder-strip p strong {
+            color: var(--ink);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            text-align: center;
+            padding: 2.8rem 1.5rem;
+            border-top: 1px solid var(--border-soft);
+            color: var(--ink-faint);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+        }
+
+        @media (max-width: 860px) {
+            .hero-stats {
+                gap: 1.6rem;
+            }
+        }
+
+        a:focus-visible,
+        .tab-link:focus-visible {
+            outline: 2px solid var(--amber);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="topbar">
+        <div class="brand-mark">
+            <img src="NextGen Labs icon.png" alt="NextGen Labs Logo" style="border-radius: 4px;">
+            NextGen Labs
+        </div>
+        <div class="tab-links">
+            <a class="tab-link" href="#core">/core</a>
+            <a class="tab-link" href="#connectivity">/connectivity</a>
+            <a class="tab-link" href="#productivity">/productivity</a>
+            <a class="tab-link" href="#lifestyle">/lifestyle</a>
+            <a class="tab-link" href="#calculators">/calculators</a>
+            <a class="tab-link" href="#media">/media</a>
+            <a class="tab-link" href="#hardware">/hardware</a>
+            <a class="tab-link" href="#developer">/developer</a>
+            <a class="tab-link" href="#upcoming">/upcoming</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-inner">
+            <div class="hero-text-block">
+                <div class="eyebrow-path">~/nextgen-labs/onefiles<span class="cursor"></span></div>
+                <h1 class="name">OneFiles: The Ultimate<br><span>All-in-One Super App</span></h1>
+                <p class="role-line">A unified files manager, media playback hub, browser, games, 50+ tools & AI
+                    assistant ( Darling AI ). Designed & founded by <strong>Madhankumar Onteddubandi
+                        ( MadhanBlastz )</strong> under <strong>NextGen Labs</strong>.</p>
+                <p class="hero-desc">Why clutter your smartphone with dozens of separate utilities? OneFiles (One Files)
+                    combines essential daily tools under a single beautiful interface. Manage your files, cast video,
+                    compile code, clean speakers, or chat with AI — all in one place.</p>
+
+                <div class="hero-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.onefiles.app" class="download-btn"
+                        target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            style="width: 20px; height: 20px; fill: #f2a93b;">
+                            <path
+                                d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58 33.1-60.1-60.1 60.1-60.1 58 33.1c24.3 13.9 24.3 36.6 0 54zM325.3 277.7l60.1 60.1L104.6 499l220.7-221.3z" />
+                        </svg>
+                        <div class="btn-text">
+                            <span class="btn-sub">Get it on</span>
+                            <span class="btn-main">Google Play</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="num"><span>9</span></div>
+                    <div class="label">Categories</div>
+                </div>
+                <div class="stat">
+                    <div class="num"><span>50+</span></div>
+                    <div class="label">Built-in Tools</div>
+                </div>
+                <div class="stat">
+                    <div class="num"><span>10+</span></div>
+                    <div class="label">URL Redirects</div>
+                </div>
+                <div class="stat">
+                    <div class="num"><span>1</span></div>
+                    <div class="label">App To Open</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+
+
+        <!-- Directory Grid -->
+        <section>
+            <div class="section-intro reveal">
+                <div class="section-eyebrow">01 — DIRECTORY</div>
+                <h2 class="section-title">The Power of OneFiles</h2>
+                <p class="section-sub">Nine Categories. Every one replaces an app you'd otherwise have installed
+                    separately.</p>
+            </div>
+
+            <div class="grid-container reveal">
+
+                <div class="feature-card" id="core">
+                    <div class="card-tab"><span class="card-path">/core</span><span class="card-count">6 tools</span>
+                    </div>
+                    <h3>Core Capabilities</h3>
+                    <ul class="tool-list">
+                        <li>File Manager</li>
+                        <li>Media Hub</li>
+                        <li>Utility Hub</li>
+                        <li>AI assistant</li>
+                        <li>Built-in Web Browser</li>
+                        <li>Gamespace</li>
+
+                    </ul>
+                </div>
+
+                <div class="feature-card" id="connectivity">
+                    <div class="card-tab"><span class="card-path">/connectivity</span><span class="card-count">6
+                            tools</span></div>
+                    <h3>Connectivity & Sharing</h3>
+                    <ul class="tool-list">
+                        <li>OneFiles Share (P2P Transfer)</li>
+                        <li>ONE Chat (Direct P2P Messaging)</li>
+                        <li>PC Remote Master</li>
+
+                        <li>Torrent Downloader</li>
+                        <li>Internet Speed Test</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" id="productivity">
+                    <div class="card-tab"><span class="card-path">/productivity</span><span class="card-count">9
+                            tools</span></div>
+                    <h3>Productivity</h3>
+                    <ul class="tool-list">
+                        <li>CamScanner (Doc to PDF)</li>
+
+                        <li>Writing Mode</li>
+                        <li>Sketch Board & Canvas</li>
+                        <li>Temp Mail (Disposable Email)</li>
+                        <li>GPS Map Camera</li>
+
+                    </ul>
+                </div>
+
+                <div class="feature-card" id="lifestyle">
+                    <div class="card-tab"><span class="card-path">/lifestyle</span><span class="card-count">7
+                            tools</span></div>
+                    <h3>Daily & Lifestyle</h3>
+                    <ul class="tool-list">
+                        <li>Daily Overlay Planner & Reminders</li>
+                        <li>Grocery List & Medicine Reminder</li>
+                        <li>Daily Expense Logger</li>
+                        <li>Bunk (Attendance) Manager</li>
+                        <li>Fake Call & Notification Simulators</li>
+                        <li>Tactile Tally Counter</li>
+                        <li>Gita Verse Daily</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" id="calculators">
+                    <div class="card-tab"><span class="card-path">/calculators</span><span class="card-count">5
+                            tools</span></div>
+                    <h3>Calculators & Converters</h3>
+                    <ul class="tool-list">
+                        <li>Smart Shop Calculator (Billing & QR)</li>
+                        <li>Interest & SIP Calculators</li>
+                        <li>Age & CGPA Calculators</li>
+                        <li>Discount & Fuel Cost Calculators</li>
+                        <li>Comprehensive Unit Converter</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" id="media">
+                    <div class="card-tab"><span class="card-path">/media</span><span class="card-count">5 tools</span>
+                    </div>
+                    <h3>Media Editing</h3>
+                    <ul class="tool-list">
+                        <li>Screen Recorder</li>
+                        <li>Audio & Video Trimmers</li>
+                        <li>Video to MP3 Extractor</li>
+                        <li>Image & PDF Compressor</li>
+                        <li>Photo Collage Maker</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" id="hardware">
+                    <div class="card-tab"><span class="card-path">/hardware</span><span class="card-count">8
+                            tools</span></div>
+                    <h3>Hardware Tools</h3>
+                    <ul class="tool-list">
+                        <li>Spy Camera & EMF Detector</li>
+                        <li>Decibel (Sound) Meter</li>
+                        <li>Sonic Cleaner (Speaker Water Ejector)</li>
+                        <li>Charger Tester</li>
+                        <li>GPS Speedometer</li>
+                        <li>Morse Code Hub</li>
+                        <li>Wi-Fi Casting Station</li>
+                        <li>Ruler, Protractor & Compass</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card" id="developer">
+                    <div class="card-tab"><span class="card-path">/developer</span><span class="card-count">4
+                            tools</span></div>
+                    <h3>Developer Hub</h3>
+                    <ul class="tool-list">
+                        <li>Code Hub (IDE & Compiler)</li>
+                        <li>Explore AI Tools</li>
+                        <li>Career Roadmaps</li>
+
+                    </ul>
+                </div>
+
+                <div class="feature-card upcoming" id="upcoming">
+                    <div class="card-tab"><span class="card-path">/upcoming</span><span class="card-count">in
+                            progress</span></div>
+                    <h3>Upcoming Utilities</h3>
+                    <ul class="tool-list">
+                        <li>Online Meeting Integration</li>
+                        <li>Accident & SOS Alert</li>
+                        <li>Universal IR Remote</li>
+                        <li>UPI Sound Box Announcer</li>
+                        <li>Print Master Queue Manager</li>
+                        <li>Offline Wi-Fi Chat (P2P)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Founder Strip -->
+        <div class="founder-strip reveal">
+            <p><strong>Madhankumar Onteddubandi ( MadhanBlastz )</strong> founded NextGen Labs to build OneFiles ( One
+                Files ) — consolidating the everyday tools that people install one app at a time into a single,
+                beautifully integrated, high-performance All-in-One Super App.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Madhankumar Onteddubandi ( MadhanBlastz ) · NextGen Labs. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Scroll reveal animation with Intersection Observer
+        const revealEls = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealEls.forEach(el => io.observe(el));
+
+
+    </script>
+
+</body>
+
+</html>
