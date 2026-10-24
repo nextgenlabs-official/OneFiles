@@ -2,31 +2,67 @@
   "version": "11.0",
   "updates": [
     {
-      "id": "v11-darling-offline-ai",
+      "id": "v11-offline-ai",
       "title": "Needle 3 & Qwen 2.5 Offline AI",
       "version": "v11.0",
       "date": "Oct 24, 2026",
       "tag": "NEW",
-      "description": "Darling AI now runs completely on-device with dual local intelligence models (Needle 3 + Qwen 2.5 0.5B) for high-speed offline conversational queries.",
+      "description": "Darling AI now runs completely on your device using dual offline models (Needle 3 + Qwen 2.5 0.5B) for private, high-speed responses with zero internet data.",
       "link": ""
     },
     {
-      "id": "v11-music-mini-player",
-      "title": "Synced Music Mini Player & Spinner",
+      "id": "v11-music-mini-bar",
+      "title": "Synced Music Mini Player & Loader",
       "version": "v11.0",
       "date": "Oct 24, 2026",
       "tag": "IMPROVED",
-      "description": "Now Playing mini bar now automatically syncs with your song list with smooth progress tracking, seeking, and playback controls.",
+      "description": "Now-Playing mini bar is now automatically synced with your song list, complete with smooth scrubbing, quick controls, and instant loading animations.",
       "link": ""
     },
     {
-      "id": "v11-system-optimizations",
-      "title": "Performance & Stability Boost",
+      "id": "v11-video-player-boost",
+      "title": "Enhanced Video Player & 8D Audio",
       "version": "v11.0",
-      "date": "Oct 2026",
-      "tag": "UPDATE",
-      "description": "Faster file scanning, memory footprint optimizations, and visual fluidity enhancements across dark theme screens.",
+      "date": "Oct 20, 2026",
+      "tag": "IMPROVED",
+      "description": "Enjoy seamless gesture controls for brightness and volume, PiP background playback, and immersive spatial 8D audio processing.",
       "link": ""
+    },
+    {
+      "id": "v11-flash-share",
+      "title": "Zero-Data Offline File Sharing",
+      "version": "v11.0",
+      "date": "Oct 15, 2026",
+      "tag": "NEW",
+      "description": "Transfer large movies, music albums, and full folders between devices at high Wi-Fi Direct speeds without using mobile data or cables.",
+      "link": ""
+    },
+    {
+      "id": "v11-doc-scanner",
+      "title": "Smart Document Scanner & PDF Export",
+      "version": "v11.0",
+      "date": "Oct 10, 2026",
+      "tag": "UPDATE",
+      "description": "Auto-detect document edges, apply crystal-clear contrast filters, and export multi-page receipts or notes directly to encrypted PDF files.",
+      "link": ""
+    },
+    {
+      "id": "v11-security-vault",
+      "title": "Private Safe Vault & AdBlock",
+      "version": "v11.0",
+      "date": "Oct 05, 2026",
+      "tag": "UPDATE",
+      "description": "Lock sensitive photos and private documents behind biometric authentication, backed by privacy-first DNS-over-HTTPS security.",
+      "link": ""
+    },
+    {
+      "id": "v11-system-performance",
+      "title": "Battery & 120Hz Fluidity Optimization",
+      "version": "v11.0",
+      "date": "Oct 01, 2026",
+      "tag": "FIX",
+      "description": "Optimized memory footprint for large folders, eliminated UI stutters on high refresh rate displays, and reduced background battery usage.",
+      "link": "https://play.google.com/store/apps/details?id=com.onefiles.app"
     }
   ]
 }
