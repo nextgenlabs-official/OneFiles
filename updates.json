@@ -1,0 +1,32 @@
+{
+  "version": "11.0",
+  "updates": [
+    {
+      "id": "v11-darling-offline-ai",
+      "title": "Needle 3 & Qwen 2.5 Offline AI",
+      "version": "v11.0",
+      "date": "Oct 24, 2026",
+      "tag": "NEW",
+      "description": "Darling AI now runs completely on-device with dual local intelligence models (Needle 3 + Qwen 2.5 0.5B) for high-speed offline conversational queries.",
+      "link": ""
+    },
+    {
+      "id": "v11-music-mini-player",
+      "title": "Synced Music Mini Player & Spinner",
+      "version": "v11.0",
+      "date": "Oct 24, 2026",
+      "tag": "IMPROVED",
+      "description": "Now Playing mini bar now automatically syncs with your song list with smooth progress tracking, seeking, and playback controls.",
+      "link": ""
+    },
+    {
+      "id": "v11-system-optimizations",
+      "title": "Performance & Stability Boost",
+      "version": "v11.0",
+      "date": "Oct 2026",
+      "tag": "UPDATE",
+      "description": "Faster file scanning, memory footprint optimizations, and visual fluidity enhancements across dark theme screens.",
+      "link": ""
+    }
+  ]
+}
